@@ -25,4 +25,4 @@ A simple web application built with **HTML, CSS, and JavaScript** that lets you 
 
 ## Preview 
 
-<img src="/photos/preview.png" alt="WPM Typer preview" width="600">
+<img src="WPM/photos/preview.png" alt="WPM Typer preview" width="600">
