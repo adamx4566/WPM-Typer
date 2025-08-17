@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WPM Tester — Words Per Minute</title>
+  <link rel="stylesheet" href="WPM.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>WPM Tester</h1>
+        <p class="lead">Generates random English text and measures your WPM.</p>
+      </div>
+      <div style="text-align:right">
+        <small class="muted">Ready for a test? Choose settings and press <strong>Start</strong>.</small>
+      </div>
+    </header>
+
+    <div class="controls">
+      <div class="settings-row card" style="gap:8px; padding:8px; align-items:center">
+        <label for="duration">Test duration:</label>
+        <select id="duration">
+          <option value="15" class="seconds">15 seconds</option>
+          <option value="30" class="seconds">30 seconds</option>
+          <option value="60" class="seconds" selected>60 seconds</option>
+          <option value="120" class="seconds">120 seconds</option>
+        </select>
+        <label for="wordsCount">Text length (words):</label>
+        <input id="wordsCount" type="number" min="15" max="1000" value="60" style="width:86px">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+          <option value="easy"  class="seconds">Easy</option>
+          <option value="medium" class="seconds" selected>Medium</option>
+          <option value="hard"  class="seconds">Hard</option>
+        </select>
+        <button id="generate">Generate text</button>
+      </div>
+
+      <div style="margin-left:auto; display:flex; gap:8px">
+        <button id="start">Start</button>
+        <button id="stop" class="ghost">Stop</button>
+        <button id="reset" class="ghost">Reset</button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div>
+        <div class="card">
+          <div id="textArea" aria-live="polite"></div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <textarea id="input" placeholder="Start typing here..." disabled></textarea>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card stats">
+          <div class="statRow">
+            <div class="stat">
+              <div class="muted">Time</div>
+              <strong id="time">00:00</strong>
+            </div>
+            <div class="stat">
+              <div class="muted">WPM</div>
+              <strong id="wpm">0</strong>
+            </div>
+            <div class="stat">
+              <div class="muted">Accuracy</div>
+              <strong id="acc">0%</strong>
+            </div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="muted">Details</div>
+          <div style="display:flex; gap:8px; margin-top:8px">
+            <div class="stat" style="flex:1">
+              <div class="muted">Correct words</div>
+              <strong id="correctWords">0</strong>
+            </div>
+            <div class="stat" style="flex:1">
+              <div class="muted">Wrong words</div>
+              <strong id="wrongWords">0</strong>
+            </div>
+          </div>
+
+          <div style="height:8px"></div>
+          <small class="muted">WPM is calculated as words typed per minute. Accuracy is percentage of correctly typed words vs typed.</small>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card" style="text-align:center">
+          <div class="muted">Quick tips</div>
+          <ul style="text-align:left; margin:8px 12px">
+            <li>Press <strong>Start</strong> to begin.</li>
+            <li>WPM updates in real time.</li>
+            <li>After the test you can <strong>Reset</strong> or generate a new text.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+        <div>
+          <strong>Test history</strong>
+          <div class="muted" style="font-size:13px">Saved in browser localStorage</div>
+        </div>
+        <div>
+          <button id="clearHistory" class="mini-btn">Clear history</button>
+        </div>
+      </div>
+
+      <div style="margin-top:10px; max-height:240px; overflow:auto;">
+        <table id="historyTable" aria-live="polite">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>WPM</th>
+              <th>Accuracy</th>
+              <th>Words (correct/wrong)</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody">
+          </tbody>
+        </table>
+        <div id="historyEmpty" class="history-empty" style="display:none; padding:10px">No saved tests.</div>
+      </div>
+    </div>
+
+    <footer>
+      <div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="WPM.js"></script>
+</body>
+</html>
