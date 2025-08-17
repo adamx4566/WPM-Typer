@@ -24,5 +24,5 @@ A simple web application built with **HTML, CSS, and JavaScript** that lets you 
 ---
 
 ## Preview 
-```html
+
 <img src="/photos/preview.png" alt="WPM Typer preview" width="600">
