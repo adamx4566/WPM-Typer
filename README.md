@@ -1,29 +1,28 @@
-# WPM-Typer
+# WPM Typer
 
-A simple web application built with HTML, CSS, and JavaScript that allows you to test your typing speed in words per minute (WPM).
+A simple web application built with **HTML, CSS, and JavaScript** that lets you test your typing speed in **words per minute (WPM)**.
 
-Features
+---
 
-Generates random English words for practice
+## Features
+- Generates random English words for practice  
+- Real-time tracking of:
+  - Time left  
+  - Words per minute (WPM)  
+  - Accuracy percentage  
+- Test history stored in browser **localStorage** (persistent across sessions)  
+- Controls: **Generate**, **Start**, **Stop**, **Reset**
 
-Real-time tracking of:
+---
 
-Time left
+## How it works
+1. Click **Generate text** to create a new typing challenge  
+2. Press **Start** and begin typing in the input box  
+3. The timer counts down from 60 seconds  
+4. At the end of the test, your results (WPM & accuracy) are displayed and saved to your personal history table  
 
-Words per minute (WPM)
+---
 
-Accuracy percentage
-
-Test history stored in browser localStorage (persistent across sessions)
-
-Start, Stop, and Reset controls
-
-How it works
-
-Click Generate text to create a new typing challenge.
-
-Press Start and begin typing in the input box.
-
-The timer counts down from 60 seconds.
-
-At the end of the test, your results (WPM & accuracy) are displayed and saved to your personal history table.
+## Preview 
+```html
+<img src="/photos/preview.png" alt="WPM Typer preview" width="600">
